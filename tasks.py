@@ -8,8 +8,8 @@ class AINewsLetterTasks():
             description=f'Fetch top AI news stories from the past 24 hours. The current time is {datetime.now()}.',
             agent=agent,
             async_execution=True,
-            expected_output="""A list of top AI news story titles, URLs, and a brief summary for each story from the past 24 hours. 
-                Example Output: 
+            expected_output="""以繁體中文將過去24小時內的頂尖AI新聞故事標題、網址，以及每個故事的簡短摘要列表。 
+                輸出範例: 
                 [
                     {  'title': 'AI takes spotlight in Super Bowl commercials', 
                     'url': 'https://example.com/story1', 
@@ -26,9 +26,9 @@ class AINewsLetterTasks():
             agent=agent,
             async_execution=True,
             context=context,
-            expected_output="""A markdown-formatted analysis for each news story, including a rundown, detailed bullet points, 
-                and a "Why it matters" section. There should be at least 5 articles, each following the proper format.
-                Example Output: 
+            expected_output="""以繁體中文呈現並針對每個新聞故事的 Markdown 格式分析，包括詳細的摘要、要點，以及 "為什麼這很重要" 的部分。
+                應該至少有5篇文章，每篇都遵循適當的格式。
+                輸出範例: 
                 '## AI takes spotlight in Super Bowl commercials\n\n
                 **The Rundown:
                 ** AI made a splash in this year\'s Super Bowl commercials...\n\n
@@ -43,8 +43,8 @@ class AINewsLetterTasks():
             description='Compile the newsletter',
             agent=agent,
             context=context,
-            expected_output="""A complete newsletter in markdown format, with a consistent style and layout.
-                Example Output: 
+            expected_output="""一份完整的繁體中文新聞通訊，以 Markdown 格式呈現，風格和版面設計保持一致。
+                輸出範例: 
                 '# Top stories in AI today:\\n\\n
                 - AI takes spotlight in Super Bowl commercials\\n
                 - Altman seeks TRILLIONS for global AI chip initiative\\n\\n

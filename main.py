@@ -1,20 +1,24 @@
 from crewai import Crew, Process
-from langchain_openai import ChatOpenAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 from agents import AINewsLetterAgents
 from tasks import AINewsLetterTasks
 from file_io import save_markdown
 
 from dotenv import load_dotenv
 load_dotenv()
+import os
 
 # Initialize the agents and tasks
 agents = AINewsLetterAgents()
 tasks = AINewsLetterTasks()
 
 # Initialize the OpenAI GPT-4 language model
-OpenAIGPT4 = ChatOpenAI(
-    model="gpt-4"
-)
+GeminiPro = ChatGoogleGenerativeAI(
+		model="gemini-pro", 
+		verbose=True, 
+		temperature=0.1, 
+		google_api_key=os.environ.get("GEMINI_API_KEY")
+	)
 
 
 # Instantiate the agents
@@ -34,7 +38,7 @@ crew = Crew(
     agents=[editor, news_fetcher, news_analyzer, newsletter_compiler],
     tasks=[fetch_news_task, analyze_news_task, compile_newsletter_task],
     process=Process.hierarchical,
-    manager_llm=OpenAIGPT4,
+    manager_llm=GeminiPro,
     verbose=2
 )
 
