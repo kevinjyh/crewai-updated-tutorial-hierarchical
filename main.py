@@ -2,7 +2,7 @@ from crewai import Crew, Process
 from langchain_google_genai import ChatGoogleGenerativeAI
 from agents import AINewsLetterAgents
 from tasks import AINewsLetterTasks
-from file_io import save_markdown
+from file_io import save_markdown, setup_logging
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -20,6 +20,8 @@ GeminiPro = ChatGoogleGenerativeAI(
 		google_api_key=os.environ.get("GEMINI_API_KEY")
 	)
 
+# 设置日志
+setup_logging()
 
 # Instantiate the agents
 editor = agents.editor_agent()
