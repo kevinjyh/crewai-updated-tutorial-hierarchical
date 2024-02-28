@@ -5,10 +5,10 @@ from crewai import Task
 class AINewsLetterTasks():
     def fetch_news_task(self, agent):
         return Task(
-            description=f'Fetch top AI news stories from the past 24 hours. The current time is {datetime.now()}.',
+            description=f'從過去10年中獲取頂尖無人機航測推算河川水底地形數據的新聞故事。目前的時間是 {datetime.now()}.',
             agent=agent,
             async_execution=True,
-            expected_output="""以繁體中文將過去24小時內的頂尖AI新聞故事標題、網址，
+            expected_output="""以繁體中文將過去10年內的頂尖無人機航測推算河川水底地形數據的新聞故事標題、網址，
                 以及每個故事的簡短摘要列表。 
                 輸出範例: 
                 [
@@ -23,7 +23,7 @@ class AINewsLetterTasks():
 
     def analyze_news_task(self, agent, context):
         return Task(
-            description='Analyze each news story and ensure there are at least 5 well-formatted articles',
+            description='分析每個新聞故事並確保至少有5篇格式良好的文章',
             agent=agent,
             async_execution=True,
             context=context,
