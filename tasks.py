@@ -8,12 +8,13 @@ class AINewsLetterTasks():
             description=f'Fetch top AI news stories from the past 24 hours. The current time is {datetime.now()}.',
             agent=agent,
             async_execution=True,
-            expected_output="""以繁體中文將過去24小時內的頂尖AI新聞故事標題、網址，以及每個故事的簡短摘要列表。 
+            expected_output="""以繁體中文將過去24小時內的頂尖AI新聞故事標題、網址，
+                以及每個故事的簡短摘要列表。 
                 輸出範例: 
                 [
-                    {  'title': 'AI takes spotlight in Super Bowl commercials', 
+                    {  'title': '無人機正在河川測量中大放異彩', 
                     'url': 'https://example.com/story1', 
-                    'summary': 'AI made a splash in this year\'s Super Bowl commercials...'
+                    'summary': '無人機航測克服植被及河水以取得地形數值的技術是大熱門...'
                     }, 
                     {{...}}
                 ]
@@ -26,15 +27,16 @@ class AINewsLetterTasks():
             agent=agent,
             async_execution=True,
             context=context,
-            expected_output="""以繁體中文呈現並針對每個新聞故事的 Markdown 格式分析，包括詳細的摘要、要點，以及 "為什麼這很重要" 的部分。
+            expected_output="""以繁體中文呈現並針對每個新聞故事的 Markdown 格式分析，
+                包括詳細的摘要、要點，以及 "為什麼這很重要" 的部分。
                 應該至少有5篇文章，每篇都遵循適當的格式。
                 輸出範例: 
-                '## AI takes spotlight in Super Bowl commercials\n\n
-                **The Rundown:
-                ** AI made a splash in this year\'s Super Bowl commercials...\n\n
-                **The details:**\n\n
-                - Microsoft\'s Copilot spot showcased its AI assistant...\n\n
-                **Why it matters:** While AI-related ads have been rampant over the last year, its Super Bowl presence is a big mainstream moment.\n\n'
+                '## 無人機航測河川水底地形推算的技術正在大放異彩\n\n
+                **摘要:
+                ** 無人機航測河川水底地形推算的新技術不斷推陳出新...\n\n
+                **詳細內容:**\n\n
+                - 大彊UAV展示了航測無限可能...\n\n
+                **為什麼重要:** 無人機雖然已經很普遍，但是如何克服水波起伏干擾河床地形測量仍是重要課題...\n\n'
             """
         )
 
@@ -43,20 +45,21 @@ class AINewsLetterTasks():
             description='Compile the newsletter',
             agent=agent,
             context=context,
-            expected_output="""一份完整的繁體中文新聞通訊，以 Markdown 格式呈現，風格和版面設計保持一致。
+            expected_output="""一份完整的繁體中文新聞通訊，以 Markdown 格式呈現，
+                風格和版面設計保持一致。
                 輸出範例: 
-                '# Top stories in AI today:\\n\\n
-                - AI takes spotlight in Super Bowl commercials\\n
-                - Altman seeks TRILLIONS for global AI chip initiative\\n\\n
+                '# 無人機航測的最夯新聞:\\n\\n
+                - 無人機航測在水利工程領域搶眼表現\\n
+                - 大彊尋求資金推動無人機航測辨識地形技術的提升\\n\\n
 
-                ## AI takes spotlight in Super Bowl commercials\\n\\n
-                **The Rundown:** AI made a splash in this year\'s Super Bowl commercials...\\n\\n
-                **The details:**...\\n\\n
-                **Why it matters::**...\\n\\n
-                ## Altman seeks TRILLIONS for global AI chip initiative\\n\\n
-                **The Rundown:** OpenAI CEO Sam Altman is reportedly angling to raise TRILLIONS of dollars...\\n\\n'
-                **The details:**...\\n\\n
-                **Why it matters::**...\\n\\n
+                ## 無人機在各大廣告中搶鏡\\n\\n
+                **摘要:** 無人機在今年的超級碗廣告中大放異彩...\\n\\n
+                **詳細內容:**...\\n\\n
+                **為何重要::**...\\n\\n
+                ## 大彊尋求資金推動無人機航測辨識地形技術的提升\\n\\n
+                **摘要:** 無人機大廠擴大發展資金...\\n\\n'
+                **詳細內容:**...\\n\\n
+                **為何重要::**...\\n\\n
             """,
             callback=callback_function
         )
